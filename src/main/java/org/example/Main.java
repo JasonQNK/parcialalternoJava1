@@ -22,6 +22,8 @@ public class Main {
         String contraseñaUsuario ="";
         String correoGuardadoBaseDatos ="jason@gmail.com";
         String contrasenaGuardadaBaseDatos ="5555";
+        String UsuarioDigitado ="";
+        String UsuarioGuardadoBaseDeDatos ="Jason";
 
         Integer intentos = 0;
 
@@ -33,14 +35,17 @@ public class Main {
 
         while (intentos <3) {
 
+            System.out.print("\nIngrese su nombre de usuario👤: ");
+            UsuarioDigitado=keyEntry.nextLine();
+
             System.out.print("\nIngrese su correo📨: ");
             CorreoUsuario=keyEntry.nextLine();
 
-            System.out.print("Ingrese su contraseña🔐: ");
+            System.out.print("\nIngrese su contraseña🔐: ");
             contraseñaUsuario=keyEntry.nextLine();
 
             if (CorreoUsuario.equals(correoGuardadoBaseDatos) &&
-                    contraseñaUsuario.equals(contrasenaGuardadaBaseDatos)) {
+                    contraseñaUsuario.equals(contrasenaGuardadaBaseDatos) && (UsuarioDigitado.equals(UsuarioGuardadoBaseDeDatos))) {
 
                 System.out.println("\nAcceso Concedido✅");
                 break;
@@ -53,7 +58,6 @@ public class Main {
                 System.out.println("Acceso Denegado Por Maximo De Intentos❌");
                 return;
 
-
             }
         }
 
@@ -63,14 +67,10 @@ public class Main {
         System.out.println("***** APP *****");
         System.out.println("******************");
 
-
-        System.out.println("\nDigita una opcion: ");
-        menuOption=keyEntry.nextInt();
-
         do {
             try {
 
-                System.out.println("👕 Bienvenido a gestor de prendas...\n¿Qué quieres realizar?\n");
+                System.out.println("\n👕 Bienvenido a gestor de prendas...\n¿Qué quieres realizar?\n");
                 System.out.println(GREEN + "1) Guardar una prenda en BD 📝");
                 System.out.println("2) Mostrar el inventario de prendas 📦");
                 System.out.println("3) SALIR ❌\n");
@@ -103,7 +103,7 @@ public class Main {
 
 
                 } else if (menuOption == 3) {
-                    //implementar algoritmo para cerrar el programa
+                    break;
                 } else {
                     System.out.println(RED + "Opción no válida. Prueba con un número del 1 al 5.");
                 }
