@@ -86,5 +86,3 @@ Proyecto creado y mejorado por: **Jeisson Yela**
 💼 Tecnología usada: Java + IntelliJ IDEA  
 
 ---
-
-Si quieres, también puedo generar una versión en inglés o agregar imágenes/capturas del proyecto dentro del README.
