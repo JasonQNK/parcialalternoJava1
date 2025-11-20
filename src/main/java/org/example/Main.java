@@ -8,22 +8,55 @@ public class Main {
 
         Scanner keyEntry = new Scanner(System.in);
         Integer menuOption=null;
-        String greenColor="\u001B[32m";
+        String GREEN="\u001B[32m";
+        String YELLOW = "\u001B[33m";
+        String RED = "\u001B[31m";
+
 
         //implementa logica para login con:
         //-nombre usuario
         //-correo
         //-contraseña
 
-        String CorreoUsuario = "";
-        String contraseñaUsuario = "";
-        String correoGuardadoBaseDatos = "jason@gmail.com";
-        String contrasenaGuardadaBaseDatos = "5555";
-        
+        String CorreoUsuario ="";
+        String contraseñaUsuario ="";
+        String correoGuardadoBaseDatos ="jason@gmail.com";
+        String contrasenaGuardadaBaseDatos ="5555";
 
-        String GREEN = "\u001B[32m";
-        String YELLOW = "\u001B[33m";
-        String RED = "\u001B[31m";
+        Integer intentos = 0;
+
+        System.out.println("\n******************");
+        System.out.println("***** LOGIN🔐 *****");
+        System.out.println("******************");
+
+
+
+        while (intentos <3) {
+
+            System.out.print("\nIngrese su correo📨: ");
+            CorreoUsuario=keyEntry.nextLine();
+
+            System.out.print("Ingrese su contraseña🔐: ");
+            contraseñaUsuario=keyEntry.nextLine();
+
+            if (CorreoUsuario.equals(correoGuardadoBaseDatos) &&
+                    contraseñaUsuario.equals(contrasenaGuardadaBaseDatos)) {
+
+                System.out.println("\nAcceso Concedido✅");
+                break;
+
+            }else{
+                intentos++;
+                System.out.println("Acceso denegado, " + intentos + " de 3");
+            }
+            if (intentos.equals(3)) {
+                System.out.println("Acceso Denegado Por Maximo De Intentos❌");
+                return;
+
+
+            }
+        }
+
 
 
         System.out.println("\n******************");
@@ -31,7 +64,7 @@ public class Main {
         System.out.println("******************");
 
 
-        System.out.println("Digita una opcion: ");
+        System.out.println("\nDigita una opcion: ");
         menuOption=keyEntry.nextInt();
 
         do {
