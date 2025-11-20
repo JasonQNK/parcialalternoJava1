@@ -1,5 +1,8 @@
 package org.example;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -12,6 +15,15 @@ public class Main {
         //-correo
         //-contraseña
 
+        String CorreoUsuario = "";
+        String contraseñaUsuario = "";
+        String correoGuardadoBaseDatos = "jason@gmail.com";
+        String contrasenaGuardadaBaseDatos = "5555";
+        
+
+        String GREEN = "\u001B[32m";
+        String YELLOW = "\u001B[33m";
+        String RED = "\u001B[31m";
 
 
         System.out.println("\n******************");
@@ -38,13 +50,13 @@ public class Main {
                 if (menuOption == 1) {
                     try {
                         System.out.print("Nombre de la prenda: ");
-                        String nombre = nextLine();
+                        String nombre = keyEntry.nextLine();
 
                         System.out.print("Talla (S/M/L/XL): ");
-                        String talla = sc.nextLine();
+                        String talla = keyEntry.nextLine();
 
                         System.out.print("Precio (entero): ");
-                        int precio = Integer.parseInt(sc.nextLine().trim());
+                        int precio = keyEntry.nextInt();
                         System.out.println(GREEN + "✅ Prenda guardada: " + nombre + " - " + talla + " - $" + precio);
                     } catch (NumberFormatException e) {
                         System.out.println(RED + "Precio inválido. Debe ser un número entero." );
