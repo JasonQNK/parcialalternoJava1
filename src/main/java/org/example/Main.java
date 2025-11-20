@@ -1,13 +1,14 @@
 package org.example;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
 
         Scanner keyEntry = new Scanner(System.in);
         Integer menuOption=null;
+        ArrayList<HashMap<String, Object>> Prendas = new ArrayList<>();
+
         String GREEN="\u001B[32m";
         String YELLOW = "\u001B[33m";
         String RED = "\u001B[31m";
@@ -27,9 +28,9 @@ public class Main {
 
         Integer intentos = 0;
 
-        System.out.println("\n******************");
-        System.out.println("***** LOGIN🔐 *****");
-        System.out.println("******************");
+        System.out.println("\n*******************************");
+        System.out.println("***** INICIO DE SESION🔐 ******");
+        System.out.println("********************************");
 
 
 
@@ -79,28 +80,37 @@ public class Main {
                 menuOption = keyEntry.nextInt();
                 keyEntry.nextLine();
 
-
                 if (menuOption == 1) {
                     try {
+                        HashMap<String, Object> Prenda = new HashMap<>();
+
                         System.out.print("Nombre de la prenda: ");
                         String nombre = keyEntry.nextLine();
+                        Prenda.put("Nombre Prenda: ", nombre);
 
                         System.out.print("Talla (S/M/L/XL): ");
                         String talla = keyEntry.nextLine();
+                        Prenda.put("Talla Prenda:", talla);
 
                         System.out.print("Precio (entero): ");
                         int precio = keyEntry.nextInt();
+                        Prenda.put("Precio Prenda: ", precio);
+                        Prendas.add(Prenda);
+
                         System.out.println(GREEN + "✅ Prenda guardada: " + nombre + " - " + talla + " - $" + precio);
                     } catch (NumberFormatException e) {
                         System.out.println(RED + "Precio inválido. Debe ser un número entero." );
                     }
                 } else if (menuOption == 2) {
 
-                    //implementar algoritmo para recorrer y mostrar la lista en el formato pedido
-                    System.out.println(YELLOW + "📋 Inventario (demo):");
-                    System.out.println("- Camiseta | M | $45000");
-                    System.out.println("- Jean     | L | $120000");
+                    for (HashMap<String,Object> Prenda : Prendas ) {
+                        System.out.printf("- %10s | %-3s | $%s%n",
+                        Prenda.get("Nombre Prenda: "),
+                        Prenda.get("Talla Prenda:"),
+                        Prenda.get("Precio Prenda: ")
+                        );
 
+                    }
 
                 } else if (menuOption == 3) {
                     break;
